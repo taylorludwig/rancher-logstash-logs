@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sed -e "s/\${DB_NAME}/$DB_NAME/" \
+sed -e "s/\${DB_HOST}/$DB_HOST/" \
+    -e "s/\${DB_NAME}/$DB_NAME/" \
     -e "s/\${DB_USER}/$DB_USER/" \
     -e "s/\${DB_PASSWORD}/$DB_PASSWORD/" \
     -e "s/\${DB_TABLE}/$DB_TABLE/" \
