@@ -5,6 +5,7 @@ sed -e "s/\${DB_HOST}/$DB_HOST/" \
     -e "s/\${DB_USER}/$DB_USER/" \
     -e "s/\${DB_PASSWORD}/$DB_PASSWORD/" \
     -e "s/\${DB_TABLE}/$DB_TABLE/" \
+    -e "s/\${START_ID}/$START_ID/" \
     /config/logstash.conf.template > /config/logstash.conf
 
 set -e

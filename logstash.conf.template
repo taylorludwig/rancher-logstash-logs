@@ -6,7 +6,7 @@ input {
         jdbc_user => "${DB_USER}"
         jdbc_password => "${DB_PASSWORD}"
         schedule => "* * * * *"
-        statement => "SELECT *, DATE_FORMAT(created, '%Y-%m-%dT%TZ') as timestamp FROM ${DB_TABLE} WHERE id > :sql_last_value"
+        statement => "SELECT *, DATE_FORMAT(created, '%Y-%m-%dT%TZ') as timestamp FROM ${DB_TABLE} WHERE id > GREATEST(${START_ID}, :sql_last_value)"
         use_column_value => true
         tracking_column => id
         jdbc_paging_enabled => true
