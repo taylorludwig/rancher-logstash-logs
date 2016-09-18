@@ -9,6 +9,8 @@ input {
         statement => "SELECT *, DATE_FORMAT(created, '%Y-%m-%dT%TZ') as timestamp FROM ${DB_TABLE} WHERE id > :sql_last_value"
         use_column_value => true
         tracking_column => id
+        jdbc_paging_enabled => true
+        jdbc_page_size => 10000
     }
 }
 filter {
