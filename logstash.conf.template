@@ -22,5 +22,10 @@ filter {
   }
 }
 output {
-    stdout { codec => json }
+    redis {
+        host => "redis"
+        port => "6379"
+        data_type => "list"
+        key => "logstash"
+     }
 }
