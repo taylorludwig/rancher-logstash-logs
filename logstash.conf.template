@@ -18,7 +18,11 @@ filter {
     match => [ "timestamp", "ISO8601"]
   }
   mutate {
-    add_field => { "message" => '{"id":%{id},"account_id":"%{account_id}","authenticated_as_account_id":"%{authenticated_as_account_id}","kind":"%{kind}","auth_type":"%{auth_type}","event_type":"%{event_type}","resource_type":"%{resource_type}","resource_id":"%{resource_id}","description":"%{description}","authenticated_as_identity_id":"%{authenticated_as_identity_id}","runtime":"%{runtime}","client_ip":"%{client_ip}","data":%{data},"created":"%{created}"}' }
+    add_field => {
+      "message" => '{"id":%{id},"account_id":"%{account_id}","authenticated_as_account_id":"%{authenticated_as_account_id}","kind":"%{kind}","auth_type":"%{auth_type}","event_type":"%{event_type}","resource_type":"%{resource_type}","resource_id":"%{resource_id}","description":"%{description}","authenticated_as_identity_id":"%{authenticated_as_identity_id}","runtime":"%{runtime}","client_ip":"%{client_ip}","data":%{data},"created":"%{created}"}'
+      "rancher_env" => "ops"
+      "audit_logs" => true
+    }
   }
 }
 output {
